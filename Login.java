@@ -1,4 +1,3 @@
-
 package usermanagementsystem;
 //import java.sql.Connection;
 //import java.sql.DriverManager;
@@ -10,18 +9,20 @@ import java.util.Scanner;
 //import static usermanagementsystem.DBData.PASSWORD;
 //import static usermanagementsystem.DBData.USER;
 public class Login {
-    CreatUser cru = new CreatUser();
+   // CreatUser cru = new CreatUser();
     
     public static void main(String [] args)throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException
 {
         if(ConnectionDB.setupDB()){
-            System.out.println("Data base created successfully\n");
+            System.out.println("Database has been created successfully\n");
             
             AdminLogin adm = new AdminLogin();
+            UsersLogin uslog = new UsersLogin();
 //            
 
 //            Connection con = DriverManager.getConnection(DB_URL, USER, PASSWORD);
 //                Statement stmt = con.createStatement();
+                while(true){
                 System.out.println("");
                 System.out.println("Welcome User Management System\n");
                 System.out.println("Admin Login Press 1");
@@ -64,9 +65,11 @@ public class Login {
                     break;
                     case 2:{
                         System.out.println("user log in");
+                        uslog.loginUsers();
+                        
                     
                     
-                    
+                    break;
                     }
                     case 3:{
                         System.out.println("Signup for Registration\n");
@@ -85,9 +88,9 @@ public class Login {
                         String pass = sr.nextLine();
                         
                         UserData register = new UserData(fname,lname,dob,email,username,pass);
-                        
-                        if(cru.addUser(register)){
-                            
+                        CreatUser cru = new CreatUser();
+                        //if(cru.addUser(register)){
+                        if(cru.addUser(register)) {   
                             System.out.println("User Created Successfully");
                         }
                         else{
@@ -98,9 +101,12 @@ public class Login {
                     
                     
                     }
+                    break;
                     case 4:{
-                        System.out.println("Exit");
-                    
+                        System.out.println("Thank you see you soon...");
+                        sr.close();
+                        System.exit(0);
+                    break;
                     
                     }
                     default:
@@ -111,7 +117,7 @@ public class Login {
                 
                 
                 }
-                        
+                }       
 //                Scanner sr = new Scanner(System.in);
 //                 System.out.println("Enter username\n");
 //                 String username = sr.nextLine();

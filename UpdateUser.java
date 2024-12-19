@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
-import java.sql.ResultSet;
+//import java.sql.ResultSet;
 import static usermanagementsystem.DBData.DB_URL;
 import static usermanagementsystem.DBData.PASSWORD;
 import static usermanagementsystem.DBData.USER;

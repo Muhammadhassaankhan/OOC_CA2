@@ -91,7 +91,9 @@ public class AdminMenu {
                         System.out.println("Thank you for using our User Management System");
                         System.out.println("Good luck..............");
                         sr.close();
+                        System.exit(0);
                         return;
+                        
                     }                
                         
                     default -> System.out.println("Wronge input");
